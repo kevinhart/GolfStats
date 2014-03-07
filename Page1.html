@@ -4,49 +4,31 @@
 <head >
     <title>Stuff</title>
 
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+   <!-- <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
     <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
 
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-  
+
+	<script src="js/NavigationController.js"></script>
+    <link href="css/whatifgolf.css"  type="text/css" rel="stylesheet">
 
 </head>
 <body>
 
-<div id="header">
-    <i class="fa fa-bars fa-lg" id="navButton"></i>
-    <h1>Welcome to Stuff!</h1>
+<div id="header" ng-controller="NavigationController">
+    <i class="fa fa-bars fa-lg" id="navButton" ng-click="toggleVisible()"></i>
+    <h1 id="title">What If Golf</h1> 
 
-    <div id="navPanel">
+    <div ng-show="visible" ng-hide="!visible" class="navPanel">
         <nav id = "nav">
-            <a href="#">Link 1</a>
+            <a href="#">Link 1</a> 
             <a href="#">Link 2</a>
             <a href="#">Link 3</a>
             <a href="#">Link 4</a>
         </nav>
     </div>
 </div>
-
-<div>
-    <br />
-    <h1>AngularJS Stuff</h1>
-
-    <label>Name:</label>
-    <input type="text" ng-model="yourName" placeholder="Enter a name here" />
-    <hr />
-    <h1> Hello {{yourName}} </h1>
-
-</div>
-
-
+<div class="content">this should be red</div>
 </body>
 
 </html>
-
-<script type="text/javascript">
-
-$("#navButton").on("click", function () {
-    $("#navPanel").toggle();
-});
-    
-</script>

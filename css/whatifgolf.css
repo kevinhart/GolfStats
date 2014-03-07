@@ -1,0 +1,27 @@
+.navPanel
+{
+	position:fixed;
+	top: 40px;
+	width:60px;
+	display:block;
+	font-weight:bold;
+	background-color:black;	
+}
+
+#title
+{
+	position:fixed;
+	top: 0px;
+	left: 100px;
+	margin-top: 0px;
+}
+
+.red
+{
+	color: red;
+}
+
+.content
+{
+	padding-top:25px;
+}
