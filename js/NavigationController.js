@@ -1,8 +1,8 @@
 function NavigationController($scope){
 
-	$scope.visible = 'true';
+	$scope.visible = false;
 
-	$scope.toggleVisible = function(){
-			$scope.visible = !$scope.visible;
+	$scope.toggleVisible = function () {
+	    $scope.visible = !$scope.visible;
 	};
 };

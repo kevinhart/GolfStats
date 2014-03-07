@@ -1,34 +1,49 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app>
 <head >
-    <title>Stuff</title>
+	<title>Stuff</title>
 
    <!-- <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
-    <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+	<script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
 
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
 
 	<script src="js/NavigationController.js"></script>
-    <link href="css/whatifgolf.css"  type="text/css" rel="stylesheet">
+	<link href="css/whatifgolf.css"  type="text/css" rel="stylesheet">
 
 </head>
 <body>
 
-<div id="header" ng-controller="NavigationController">
-    <i class="fa fa-bars fa-lg" id="navButton" ng-click="toggleVisible()"></i>
-    <h1 id="title">What If Golf</h1> 
+<header ng-controller="NavigationController">
+    
+    <i class="fa fa-bars fa-lg" id="nav-button" ng-click="toggleVisible()"></i>
+	<span id="title">What If Golf</span> 
+    <i class="fa fa-gear fa-lg" id="settings-button" ></i>
 
-    <div ng-show="visible" ng-hide="!visible" class="navPanel">
-        <nav id = "nav">
-            <a href="#">Link 1</a> 
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-            <a href="#">Link 4</a>
-        </nav>
-    </div>
-</div>
-<div class="content">this should be red</div>
+
+	<nav id="navPanel" ng-show="visible">
+		<ul>
+            <li><a href="#"><i class="fa fa-rocket fa-2x"></i>Rocket</a></li>
+            <li><a href="#"><i class="fa fa-camera fa-2x"></i>Camera</a></li>
+            <li><a href="#"><i class="fa fa-coffee fa-2x"></i>Coffee</a></li>
+            <li><a href="#"><i class="fa fa-cloud-upload fa-2x"></i>Upload</a></li>        
+       </ul>
+	</nav>	
+    
+</header>
+<div class="content">this is where the content starts</div>
+
 </body>
 
 </html>
