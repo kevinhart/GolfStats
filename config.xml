@@ -17,4 +17,7 @@
 
 	<gap:platform name="android" />
 	
+	<gap:splash src="splash.png" />
+	<gap:icon src="icon.png" />
+	
 </widget>
