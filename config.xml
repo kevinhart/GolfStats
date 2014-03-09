@@ -17,7 +17,9 @@
 
 	<gap:platform name="android" />
 	
-	<gap:splash src="splash.png" />
-	<icon src="icon.png" width="36" height="36"/>
+	<gap:splash src="img/splash.png" />
+	<icon src="img/icon.png"/>
+	<icon src="img/icon-72.png" gap:platform="android" gap:density="hdpi" />
+	<icon src="img/icon-96.png" gap:platform="android" gap:density="xhdpi" />
 	
 </widget>
