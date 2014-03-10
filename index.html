@@ -17,10 +17,12 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	
+    <script src="http://requirejs.org/docs/release/2.1.11/minified/require.js"></script>
 
-	<script src="https://github.com/typicaljoe/taffydb/raw/master/taffy.js"></script>
 
 	<script src="js/NavigationController.js"></script>
+    <script src="js/playController.js"></script>
 	<link href="css/whatifgolf.css"  type="text/css" rel="stylesheet">
 
 </head>
@@ -34,17 +36,55 @@
 
 	<nav id="navPanel" ng-show="navVisible" >
 		<ul>
-            <li><a href="#" ng-click="navClick('home')"><i class="fa fa-rocket fa-2x"></i>Rocket</a></li>
-            <li><a href="#" ng-click="navClick('play')"><i class="fa fa-camera fa-2x"></i>Camera</a></li>
-            <li><a href="#"><i class="fa fa-coffee fa-2x"></i>Coffee</a></li>
-            <li><a href="#"><i class="fa fa-cloud-upload fa-2x"></i>Upload</a></li>        
+            <li><a href="#" ng-click="navClick('home')"><i class="fa fa-home fa-2x"></i>Home</a></li>
+            <li><a href="#" ng-click="navClick('play')"><i class="fa fa-pencil-square-o fa-2x"></i>Play</a></li>
+            <li><a href="#" ng-click="navClick('history')"><i class="fa fa-book fa-2x"></i>History</a></li>
+            <li><a href="#" ng-click="navClick('sync')"><i class="fa fa-cloud-upload fa-2x"></i>Sync</a></li>        
        </ul>
 	</nav>	
 </header>
 <span id="nav-right" ng-show="navVisible" ng-click="toggleVisible()"></span>
 
-<div class="content" ng-show="isTarget('home')">this is where the content starts -- HOME</div>
-<div class="content" ng-show="isTarget('play')">this is where the content starts -- PLAY</div>
+<div class="content" ng-show="isTarget('home')">
+
+    <center>
+        <h4>Home</h4>
+        yeah...needs more content
+    </center>
+
+</div>
+
+
+<div class="content" ng-show="isTarget('play')" ng-controller="playController" ng-init="loadData()">
+    
+    <center>
+    <h4>Currently Registered Courses</h4>
+        <div ng-repeat="course in courses"><a href="{{course.website}}">{{course.name}}</a></div>
+    </center>
+</div>
+
+
+<div class="content" ng-show="isTarget('history')">
+
+    <center>
+        <h4>History</h4>
+        eventually you will be able to select/filter a list of rounds and view/edit stats on them
+    </center>
+
+</div>
+
+
+<div class="content" ng-show="isTarget('sync')">
+
+    <center>
+        <h4>Sync</h4>
+        future placeholder for uploading recently played rounds to the cloud
+    </center>
+
+</div>
+
+
+
 
 </body>
 
