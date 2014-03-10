@@ -18,31 +18,33 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
+	<script src="https://github.com/typicaljoe/taffydb/raw/master/taffy.js"></script>
 
 	<script src="js/NavigationController.js"></script>
 	<link href="css/whatifgolf.css"  type="text/css" rel="stylesheet">
 
 </head>
-<body>
+<body ng-controller="NavigationController">
 
-<header ng-controller="NavigationController">
+<header >
     
-    <i class="fa fa-bars fa-lg" id="nav-button" ng-click="toggleVisible()"></i>
+    <span id="menu-wrapper" ng-click="toggleVisible()"><i class="fa fa-bars fa-lg" id="nav-button"></i></span>
 	<span id="title">What If Golf</span> 
     <i class="fa fa-gear fa-lg" id="settings-button" ></i>
 
-
-	<nav id="navPanel" ng-show="visible">
+	<nav id="navPanel" ng-show="navVisible" >
 		<ul>
-            <li><a href="#"><i class="fa fa-rocket fa-2x"></i>Rocket</a></li>
-            <li><a href="#"><i class="fa fa-camera fa-2x"></i>Camera</a></li>
+            <li><a href="#" ng-click="navClick('home')"><i class="fa fa-rocket fa-2x"></i>Rocket</a></li>
+            <li><a href="#" ng-click="navClick('play')"><i class="fa fa-camera fa-2x"></i>Camera</a></li>
             <li><a href="#"><i class="fa fa-coffee fa-2x"></i>Coffee</a></li>
             <li><a href="#"><i class="fa fa-cloud-upload fa-2x"></i>Upload</a></li>        
        </ul>
 	</nav>	
-    
 </header>
-<div class="content">this is where the content starts</div>
+<span id="nav-right" ng-show="navVisible" ng-click="toggleVisible()"></span>
+
+<div class="content" ng-show="isTarget('home')">this is where the content starts -- HOME</div>
+<div class="content" ng-show="isTarget('play')">this is where the content starts -- PLAY</div>
 
 </body>
 

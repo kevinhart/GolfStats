@@ -15,6 +15,15 @@ header
     text-align: center;
 }
 
+#menu-wrapper
+{
+	position:absolute;
+	height:40px;
+	width:60px;
+	top:0px;
+	left:0px;
+}
+
 #nav-button
 {
     position: absolute;
@@ -29,6 +38,16 @@ header
     top: 13px;
 }    
 
+#nav-right
+{
+	position:absolute;
+	top:40px;
+	height:100%;
+	background-color:black;
+	width:100%;
+	opacity:0.75;
+	z-index:-1;
+}
 nav
 {
 	position:fixed;
