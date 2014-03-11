@@ -1,30 +1,51 @@
 ﻿<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
 <head >
 	<title>Stuff</title>
 
    <!-- <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
 	<script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
-
+	<script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
+	
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	
-    <script src="http://requirejs.org/docs/release/2.1.11/minified/require.js"></script>
-
-
 	<script src="js/NavigationController.js"></script>
     <script src="js/playController.js"></script>
 	<link href="css/whatifgolf.css"  type="text/css" rel="stylesheet">
 
+	    <script>
+			var myApp = angular.module('myApp', ['ui.router']);
+			myApp.config(function($stateProvider, $urlRouterProvider) {
+			  //
+			  // For any unmatched url, redirect to /state1
+			  $urlRouterProvider.otherwise("/home");
+			  //
+			  // Now set up the states
+			  $stateProvider
+			  	.state('sync', {
+				  url: "/sync",
+				  templateUrl: "partials/sync.html"
+				})
+				.state('history', {
+				  url: "/history",
+				  templateUrl: "partials/history.html"
+				})
+				.state('home', {
+				  url: "/home",
+				  templateUrl: "partials/home.html"
+				})
+				.state('play', {
+				  url: "/play",
+				  templateUrl: "partials/play.html"
+				})
+				});
+		</script>
+	
+	
 </head>
 <body ng-controller="NavigationController">
 
@@ -36,54 +57,16 @@
 
 	<nav id="navPanel" ng-show="navVisible" >
 		<ul>
-            <li><a href="#" ng-click="navClick('home')"><i class="fa fa-home fa-2x"></i>Home</a></li>
-            <li><a href="#" ng-click="navClick('play')"><i class="fa fa-pencil-square-o fa-2x"></i>Play</a></li>
-            <li><a href="#" ng-click="navClick('history')"><i class="fa fa-book fa-2x"></i>History</a></li>
-            <li><a href="#" ng-click="navClick('sync')"><i class="fa fa-cloud-upload fa-2x"></i>Sync</a></li>        
+            <li><a href="#" ui-sref="home" ng-click="navClick('home')"><i class="fa fa-home fa-2x"></i>Home</a></li>
+            <li><a href="#" ui-sref="play" ng-click="navClick('play')"><i class="fa fa-pencil-square-o fa-2x"></i>Play</a></li>
+            <li><a href="#" ui-sref="history" ng-click="navClick('history')"><i class="fa fa-book fa-2x"></i>History</a></li>
+            <li><a href="#" ui-sref="sync" ng-click="navClick('sync')"><i class="fa fa-cloud-upload fa-2x"></i>Sync</a></li>          
        </ul>
 	</nav>	
 </header>
 <span id="nav-right" ng-show="navVisible" ng-click="toggleVisible()"></span>
 
-<div class="content" ng-show="isTarget('home')">
-
-    <center>
-        <h4>Home</h4>
-        yeah...needs more content
-    </center>
-
-</div>
-
-
-<div class="content" ng-show="isTarget('play')" ng-controller="playController" ng-init="loadData()">
-    
-    <center>
-    <h4>Currently Registered Courses</h4>
-        <div ng-repeat="course in courses"><a href="{{course.website}}">{{course.name}}</a></div>
-    </center>
-</div>
-
-
-<div class="content" ng-show="isTarget('history')">
-
-    <center>
-        <h4>History</h4>
-        eventually you will be able to select/filter a list of rounds and view/edit stats on them
-    </center>
-
-</div>
-
-
-<div class="content" ng-show="isTarget('sync')">
-
-    <center>
-        <h4>Sync</h4>
-        future placeholder for uploading recently played rounds to the cloud
-    </center>
-
-</div>
-
-
+<div ui-view></div>
 
 
 </body>

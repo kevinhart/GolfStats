@@ -1,0 +1,11 @@
+
+<div class="content"  ng-controller="playController" ng-init="loadData()">
+    
+    <center>
+    <h4>Currently Registered Courses</h4>
+        <div ng-repeat="course in courses" class="block-panel">
+			
+			<a href="{{course.website}}">{{course.name}}</a>
+		</div>
+    </center>
+</div>

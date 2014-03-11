@@ -99,3 +99,10 @@ nav ul li i.fa
 {
 	padding-top:25px;
 }
+
+.block-panel
+{
+	width: 75%;
+	background-color: #d9edf7;
+	margin: 5px;
+}
